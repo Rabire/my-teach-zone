@@ -2,11 +2,11 @@ import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import ProtectedLayout from "./pages/ProtectedLayout";
-import Dashboard from "./pages/Dashboard";
-import Students from "./pages/Students";
+import Login from "pages/Login";
+import Register from "pages/Register";
+import ProtectedLayout from "pages/ProtectedLayout";
+import Dashboard from "pages/Dashboard";
+import Students from "pages/Students";
 
 function App() {
   return (

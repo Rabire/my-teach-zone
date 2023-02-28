@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
-import { signUp } from "../supabase/auth";
+import { signUp } from "supabase/auth";
 
 type RegisterInputs = {
   name: string;

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
-import { login } from "../supabase/auth";
+import { login } from "supabase/auth";
 
 type LoginInputs = {
   email: string;
