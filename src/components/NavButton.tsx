@@ -15,11 +15,11 @@ const NavButton = ({ kind }: Props) => {
     <Link
       to={kind}
       className={clsx(
-        "aspect-square flex-center rounded bg-gray-800 hover:border-2",
+        "aspect-square flex-center rounded bg-gray-800 hover:border-2 p-2",
         isActive && "bg-violet-500"
       )}
     >
-      {kind}
+      {icon}
     </Link>
   );
 };

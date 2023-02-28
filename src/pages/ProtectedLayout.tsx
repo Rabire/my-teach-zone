@@ -31,9 +31,9 @@ const ProtectedLayout = () => {
         <div />
         <nav className="flex flex-col gap-4 ">
           <NavButton kind="/" />
-          <NavButton kind="/formations" />
-          <NavButton kind="/lessons" />
+          {/* <NavButton kind="/formations" />
           <NavButton kind="/schools" />
+          <NavButton kind="/lessons" /> */}
         </nav>
         <Link to="/login">LOGOUT</Link>
       </header>
