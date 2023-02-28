@@ -26,7 +26,7 @@ const ProtectedLayout = () => {
 
   return (
     <div className="flex">
-      <header className="h-screen p-6 align-middle shadow-lg flex flex-col items-center justify-between">
+      <header className="h-screen p-6 align-middle shadow-lg flex flex-col items-center justify-between bg-gray-700">
         <div />
         <nav className="flex flex-col gap-4 ">
           <Link to="/" className="aspect-square flex-center bg-red-300">

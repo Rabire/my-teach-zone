@@ -23,12 +23,20 @@ export const login = async (email: string, password: string) => {
 export const getMe = async () => {
   const {
     data: { user },
-    error,
+    error: authError,
   } = await supabase.auth.getUser();
 
-  // supabase.from("students").select().then(console.log);
+  if (!user) return { data: null, error: authError };
 
-  const data: UserProfile = user && { user, profile: { name: " oui mec " } };
+  const { data: profile, error: profileError } = await supabase
+    .from("profiles")
+    .select("name")
+    .eq("id", "e3c283d6-29d4-4ec1-b30e-547178da662a")
+    .single();
 
-  return { error, data };
+  if (!profile) return { data: null, error: profileError };
+
+  const data: UserProfile = { user, profile };
+
+  return { error: authError || profileError, data };
 };

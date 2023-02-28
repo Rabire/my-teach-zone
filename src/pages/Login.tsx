@@ -22,8 +22,6 @@ const Login = () => {
   const onSubmit = async (inputs: LoginInputs) => {
     const { data, error } = await login(inputs.email, inputs.password);
 
-    await console.log({ data, error });
-
     if (error) toast.error(error.toString());
 
     if (data.user) navigate("/");
