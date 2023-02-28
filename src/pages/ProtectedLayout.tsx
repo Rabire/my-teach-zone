@@ -5,6 +5,7 @@ import { useStore } from "@nanostores/react";
 
 import { userProfileStore, setUserProfile } from "stores/profile";
 import { getMe } from "supabase/auth";
+import NavButton from "components/NavButton";
 
 const ProtectedLayout = () => {
   const userProfile = useStore(userProfileStore);
@@ -29,18 +30,10 @@ const ProtectedLayout = () => {
       <header className="h-screen p-6 align-middle shadow-lg flex flex-col items-center justify-between bg-gray-700">
         <div />
         <nav className="flex flex-col gap-4 ">
-          <Link to="/" className="aspect-square flex-center bg-red-300">
-            Home
-          </Link>
-          <button className="aspect-square flex-center bg-red-300">
-            Search
-          </button>
-          <Link to="/lessons" className="aspect-square flex-center bg-red-300">
-            lessons
-          </Link>
-          <Link to="/students" className="aspect-square flex-center bg-red-300">
-            students
-          </Link>
+          <NavButton kind="/" />
+          <NavButton kind="/formations" />
+          <NavButton kind="/lessons" />
+          <NavButton kind="/schools" />
         </nav>
         <Link to="/login">LOGOUT</Link>
       </header>

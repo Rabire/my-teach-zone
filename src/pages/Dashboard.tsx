@@ -39,10 +39,10 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl opacity-50">Current lesson</h2>
+          <h2 className="text-xl opacity-50">Current formations</h2>
           <FormationCard formation={MOCK_FORMATION} />
 
-          <h2 className="text-xl opacity-50 mt-4">Incomming lessons</h2>
+          <h2 className="text-xl opacity-50 mt-4">Incomming formations</h2>
           <FormationCard formation={MOCK_FORMATION} />
           <FormationCard formation={MOCK_FORMATION} />
         </div>
