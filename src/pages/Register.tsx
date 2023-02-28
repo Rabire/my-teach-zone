@@ -1,4 +1,4 @@
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 
@@ -32,11 +32,12 @@ const Register = () => {
 
     const { data, error } = await signUp(inputs.email, inputs.password);
 
-    await console.log({ data, error });
-
     if (error) toast.error(error.toString());
 
-    if (data) navigate("/");
+    if (data.user) {
+      toast.success("Profile created, please confirm your email");
+      navigate("/login");
+    }
   };
 
   const firstError = Object.values(errors)[0];
