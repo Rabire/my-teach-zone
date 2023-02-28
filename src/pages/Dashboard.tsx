@@ -1,6 +1,23 @@
 import { userProfileStore } from "stores/profile";
 import { useStore } from "@nanostores/react";
 import { Link } from "react-router-dom";
+import { Formation } from "utils/types";
+import FormationCard from "compoenents/FormationCard";
+
+const MOCK_FORMATION: Formation = {
+  id: 1,
+  start: new Date("2023-02-27"),
+  end: new Date("2023-03-03"),
+  lesson: { id: 44, name: "React avancé" },
+  form: {
+    id: 1,
+    end_month: new Date("2022").toISOString(),
+    name: "B3 Dev",
+    school: 101,
+    start_month: new Date("2023").toISOString(),
+    created_at: new Date().toISOString(),
+  },
+};
 
 const Dashboard = () => {
   const userProfile = useStore(userProfileStore);
@@ -14,20 +31,11 @@ const Dashboard = () => {
       <div className="grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-2">
           <h2 className="text-xl opacity-50">Current lesson</h2>
-          <Link to="" className="bg-gray-700 rounded-md p-4">
-            <h3 className="text-xl">Advanced react</h3>
-            <p className="opacity-50">27 feb - 2 mar</p>
-          </Link>
+          <FormationCard formation={MOCK_FORMATION} />
 
           <h2 className="text-xl opacity-50 mt-4">Incomming lessons</h2>
-          <Link to="" className="bg-gray-700 rounded-md p-4">
-            <h3 className="text-xl">Python B2</h3>
-            <p className="opacity-50">27 feb - 2 mar</p>
-          </Link>
-          <Link to="" className="bg-gray-700 rounded-md p-4">
-            <h3 className="text-xl">Gestion de projet</h3>
-            <p className="opacity-50">27 feb - 2 mar</p>
-          </Link>
+          <FormationCard formation={MOCK_FORMATION} />
+          <FormationCard formation={MOCK_FORMATION} />
         </div>
 
         <ul className="flex flex-col gap-2">
