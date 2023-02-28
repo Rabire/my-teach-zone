@@ -1,10 +1,27 @@
-import { useState } from "react";
-import { Link, Navigate, Outlet } from "react-router-dom";
+import { User } from "@supabase/supabase-js";
+import { useState, useEffect } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { getMe } from "supabase/auth";
+import { UserProfile } from "utils/types";
 
 const ProtectedLayout = () => {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
 
-  if (!loggedIn) return <Navigate to="/login" />;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getMe().then((data) => {
+      setUserProfile(data.data);
+
+      if (data.error) {
+        toast.error("Could not retreive your profile");
+        navigate("/login");
+      }
+    });
+  }, []);
+
+  if (!userProfile) return <p>Loading ...</p>;
 
   return (
     <div className="flex">
@@ -24,7 +41,7 @@ const ProtectedLayout = () => {
             students
           </Link>
         </nav>
-        <button>LOGOUT</button>
+        <Link to="/login">LOGOUT</Link>
       </header>
 
       <main className="p-10 w-full">

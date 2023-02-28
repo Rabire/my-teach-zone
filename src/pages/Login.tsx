@@ -13,7 +13,9 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginInputs>();
+  } = useForm<LoginInputs>({
+    defaultValues: { email: "rabireh@outlook.fr", password: "123123" },
+  });
 
   const navigate = useNavigate();
 

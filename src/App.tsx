@@ -7,6 +7,7 @@ import Register from "pages/Register";
 import ProtectedLayout from "pages/ProtectedLayout";
 import Dashboard from "pages/Dashboard";
 import Students from "pages/Students";
+import GuestLayout from "pages/GuestLayout";
 
 function App() {
   return (
@@ -14,8 +15,10 @@ function App() {
       <ToastContainer position="bottom-left" theme="dark" />
 
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signin" element={<Register />} />
+        <Route element={<GuestLayout />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signin" element={<Register />} />
+        </Route>
 
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<Dashboard />} />

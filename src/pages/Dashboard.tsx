@@ -1,7 +1,7 @@
-import supabase from "supabase";
+// import supabase from "supabase";
 
 const Dashboard = () => {
-  supabase.from("students").select().then(console.log);
+  // supabase.from("students").select().then(console.log);
 
   return (
     <div>

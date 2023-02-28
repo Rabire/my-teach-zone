@@ -1,3 +1,4 @@
+import { UserProfile } from "utils/types";
 import supabase from ".";
 
 // TODO: register name #4
@@ -17,4 +18,15 @@ export const login = async (email: string, password: string) => {
   });
 
   return { data, error };
+};
+
+export const getMe = async () => {
+  const {
+    data: { user },
+    error,
+  } = await supabase.auth.getUser();
+
+  const data: UserProfile = user && { user, profile: { name: " oui mec " } };
+
+  return { error, data };
 };
