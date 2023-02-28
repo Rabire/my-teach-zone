@@ -26,6 +26,8 @@ export const getMe = async () => {
     error,
   } = await supabase.auth.getUser();
 
+  // supabase.from("students").select().then(console.log);
+
   const data: UserProfile = user && { user, profile: { name: " oui mec " } };
 
   return { error, data };

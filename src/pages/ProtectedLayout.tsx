@@ -1,12 +1,13 @@
-import { User } from "@supabase/supabase-js";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useStore } from "@nanostores/react";
+
+import { userProfileStore, setUserProfile } from "stores/profile";
 import { getMe } from "supabase/auth";
-import { UserProfile } from "utils/types";
 
 const ProtectedLayout = () => {
-  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+  const userProfile = useStore(userProfileStore);
 
   const navigate = useNavigate();
 
