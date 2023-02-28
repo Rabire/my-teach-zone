@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route element={<GuestLayout />}>
           <Route path="/login" element={<Login />} />
-          <Route path="/signin" element={<Register />} />
+          <Route path="/register" element={<Register />} />
         </Route>
 
         <Route element={<ProtectedLayout />}>

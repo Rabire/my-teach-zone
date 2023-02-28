@@ -68,7 +68,7 @@ const Login = () => {
         <p className="text-center text-red-500 text-sm">
           {firstError?.message}
         </p>
-        <Link to="/signin" className="text-sm opacity-50 mt-2 text-center">
+        <Link to="/register" className="text-sm opacity-50 mt-2 text-center">
           Or Register
         </Link>
       </form>
