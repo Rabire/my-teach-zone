@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "gen-types": "supabase gen types typescript --db-url postgresql://postgres:h2fWV2f6CQtimVqn@db.foquwoayeafivvarjqqi.supabase.co:5432/postgres > ./src/supabase/schema.ts"
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",

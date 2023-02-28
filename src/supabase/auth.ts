@@ -30,7 +30,7 @@ export const getMe = async () => {
 
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
-    .select("name")
+    .select("*")
     .eq("id", "e3c283d6-29d4-4ec1-b30e-547178da662a")
     .single();
 
