@@ -1,8 +1,9 @@
 import { userProfileStore } from "stores/profile";
 import { useStore } from "@nanostores/react";
 import { Link } from "react-router-dom";
-import { Formation } from "utils/types";
-import FormationCard from "compoenents/FormationCard";
+import { Formation, Student } from "utils/types";
+import FormationCard from "components/FormationCard";
+import StudentCard from "components/StudentCard";
 
 const MOCK_FORMATION: Formation = {
   id: 1,
@@ -17,6 +18,14 @@ const MOCK_FORMATION: Formation = {
     start_month: new Date("2023").toISOString(),
     created_at: new Date().toISOString(),
   },
+};
+
+const MOCK_STUDENT: Student = {
+  id: 1,
+  name: "Louis DUPONT",
+  class: 88,
+  email: "a@a",
+  created_at: new Date().toISOString(),
 };
 
 const Dashboard = () => {
@@ -41,21 +50,14 @@ const Dashboard = () => {
         <ul className="flex flex-col gap-2">
           <h2 className="text-xl opacity-50">Recent students</h2>
 
-          <Link to="" className="bg-gray-700 rounded p-2">
-            Rabire HAKIM
-          </Link>
-          <Link to="" className="bg-gray-700 rounded p-2">
-            Leo DI MARTINO
-          </Link>
-          <Link to="" className="bg-gray-700 rounded p-2">
-            Oussama BECHICHI
-          </Link>
-          <Link to="" className="bg-gray-700 rounded p-2">
-            Yann BONAUDO
-          </Link>
-          <Link to="" className="bg-gray-700 rounded p-2">
-            Rabire HAKIM
-          </Link>
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
+          <StudentCard student={MOCK_STUDENT} />
         </ul>
       </div>
     </div>

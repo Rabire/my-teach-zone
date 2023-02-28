@@ -1,6 +1,8 @@
 import { User } from "@supabase/supabase-js";
 import { Database } from "supabase/schema";
 
+export type Student = Database["public"]["Tables"]["students"]["Row"];
+
 export type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 
 export type Class = Database["public"]["Tables"]["class"]["Row"]; // FIXME: rename to Form
