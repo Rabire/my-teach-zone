@@ -16,6 +16,7 @@ export interface Database {
           id: number
           lesson_id: number
           start: string
+          teacher_id: string
         }
         Insert: {
           end: string
@@ -23,6 +24,7 @@ export interface Database {
           id?: number
           lesson_id: number
           start: string
+          teacher_id?: string
         }
         Update: {
           end?: string
@@ -30,6 +32,7 @@ export interface Database {
           id?: number
           lesson_id?: number
           start?: string
+          teacher_id?: string
         }
       }
       forms: {
@@ -72,19 +75,16 @@ export interface Database {
           name?: string
         }
       }
-      school: {
+      schools: {
         Row: {
-          created_at: string | null
           id: number
           name: string
         }
         Insert: {
-          created_at?: string | null
           id?: number
           name: string
         }
         Update: {
-          created_at?: string | null
           id?: number
           name?: string
         }
@@ -92,22 +92,19 @@ export interface Database {
       students: {
         Row: {
           content: string | null
-          email: string
-          form_id: number
+          form_id: number | null
           id: number
           name: string
         }
         Insert: {
           content?: string | null
-          email: string
-          form_id: number
+          form_id?: number | null
           id?: number
           name: string
         }
         Update: {
           content?: string | null
-          email?: string
-          form_id?: number
+          form_id?: number | null
           id?: number
           name?: string
         }

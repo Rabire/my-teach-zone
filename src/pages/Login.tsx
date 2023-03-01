@@ -42,7 +42,7 @@ const Login = () => {
           <label className="text-sm opacity-50">Email</label>
           <input
             type="text"
-            className="login-input"
+            className="input"
             {...register("email", { required: "Please enter an email" })}
           />
         </div>
@@ -51,7 +51,7 @@ const Login = () => {
           <label className="text-sm opacity-50">Password</label>
           <input
             type="password"
-            className="login-input"
+            className="input"
             {...register("password", {
               required: "Please enter a password",
             })}

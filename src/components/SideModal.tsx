@@ -1,6 +1,6 @@
-import { useEffect, useRef } from "react";
 import { useStore } from "@nanostores/react";
 import { isSideModalOpenStore, toggleSideModal } from "stores/side-modal";
+import WriteSchoolForm from "./WriteSchoolForm";
 
 const SideModal = () => {
   const isModalOpen = useStore(isSideModalOpenStore);
@@ -13,7 +13,9 @@ const SideModal = () => {
         className="bg-black h-full w-full opacity-80 px-16"
         onClick={() => toggleSideModal("close")}
       />
-      <aside className=" bg-gray-700 p-4">SideModalSideModalSide</aside>
+      <aside className=" bg-gray-700 p-4">
+        <WriteSchoolForm />
+      </aside>
     </div>
   );
 };

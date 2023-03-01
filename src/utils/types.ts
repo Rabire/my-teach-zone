@@ -7,4 +7,7 @@ export type Form = Database["public"]["Tables"]["forms"]["Row"];
 export type Lesson = Database["public"]["Tables"]["lessons"]["Row"];
 export type Formation = Database["public"]["Tables"]["formations"]["Row"];
 
+export type School = Database["public"]["Tables"]["schools"]["Row"];
+export type CreateSchool = Database["public"]["Tables"]["schools"]["Insert"];
+
 export type UserTeacher = { user: User; teacher: Teacher } | null;

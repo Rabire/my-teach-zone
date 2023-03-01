@@ -55,7 +55,7 @@ const Register = () => {
           <label className="text-sm opacity-50">Your name</label>
           <input
             type="text"
-            className="login-input"
+            className="input"
             {...register("name", { required: "Please enter your name" })}
           />
         </div>
@@ -63,7 +63,7 @@ const Register = () => {
           <label className="text-sm opacity-50">Email</label>
           <input
             type="text"
-            className="login-input"
+            className="input"
             {...register("email", { required: "Please enter an email" })}
           />
         </div>
@@ -72,7 +72,7 @@ const Register = () => {
           <label className="text-sm opacity-50">Password</label>
           <input
             type="password"
-            className="login-input"
+            className="input"
             {...register("password", {
               required: "Please enter a password",
               minLength: { value: 6, message: "Minimum password length: 6" },
@@ -84,7 +84,7 @@ const Register = () => {
           <label className="text-sm opacity-50">Password confirmation</label>
           <input
             type="password"
-            className="login-input"
+            className="input"
             {...register("passwordConfirmation", {
               required: "Please enter the password again",
             })}
