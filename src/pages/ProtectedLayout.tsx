@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useStore } from "@nanostores/react";
 
 import { userProfileStore, setUserProfile } from "stores/profile";
 import { getMe } from "supabase/auth";
-import NavButton from "components/NavButton";
+import Header from "components/Header";
 
 const ProtectedLayout = () => {
   const userProfile = useStore(userProfileStore);
@@ -27,16 +27,7 @@ const ProtectedLayout = () => {
 
   return (
     <div className="flex">
-      <header className="h-screen p-6 align-middle shadow-lg flex flex-col items-center justify-between bg-gray-700">
-        <div />
-        <nav className="flex flex-col gap-4 ">
-          <NavButton kind="/" />
-          {/* <NavButton kind="/formations" />
-          <NavButton kind="/schools" />
-          <NavButton kind="/lessons" /> */}
-        </nav>
-        <Link to="/login">LOGOUT</Link>
-      </header>
+      <Header />
 
       <main className="p-10 w-full">
         <Outlet />
