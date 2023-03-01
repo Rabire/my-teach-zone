@@ -3,7 +3,7 @@ import { useStore } from "@nanostores/react";
 import { Form, Formation, Lesson, Student } from "utils/types";
 import FormationCard from "components/FormationCard";
 import StudentCard from "components/StudentCard";
-import { getHome } from "supabase/dashboard";
+import { getHome } from "supabase/dashboards";
 
 const MOCK_FORMATION: Formation & { lesson: Lesson; form: Form } = {
   id: 1,

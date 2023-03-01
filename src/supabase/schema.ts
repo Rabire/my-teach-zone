@@ -79,14 +79,17 @@ export interface Database {
         Row: {
           id: number
           name: string
+          teacher_id: string
         }
         Insert: {
           id?: number
           name: string
+          teacher_id?: string
         }
         Update: {
           id?: number
           name?: string
+          teacher_id?: string
         }
       }
       students: {
