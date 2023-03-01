@@ -101,7 +101,7 @@ const Register = () => {
           {firstError?.message}
         </p>
         <Link to="/login" className="text-sm opacity-50 mt-2 text-center">
-          Or Login
+          or login
         </Link>
       </form>
     </main>

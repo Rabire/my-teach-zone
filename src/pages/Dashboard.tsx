@@ -31,10 +31,12 @@ const MOCK_STUDENT: Student = {
 const Dashboard = () => {
   const userTeacher = useStore(userTeacherStore);
 
+  if (!userTeacher) return null;
+
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
       <h1 className="font-semibold text-4xl mb-4">
-        Hi {userTeacher?.teacher.name}
+        HI {userTeacher.teacher.name.toUpperCase()}
       </h1>
 
       <div className="grid grid-cols-2 w-full gap-4">

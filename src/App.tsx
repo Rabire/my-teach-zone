@@ -2,12 +2,13 @@ import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import ProtectedLayout from "pages/layouts/ProtectedLayout";
+import GuestLayout from "pages/layouts/GuestLayout";
 import Login from "pages/Login";
 import Register from "pages/Register";
-import ProtectedLayout from "pages/ProtectedLayout";
 import Dashboard from "pages/Dashboard";
-import Students from "pages/Students";
-import GuestLayout from "pages/GuestLayout";
+import Schools from "pages/Schools";
+import Formations from "pages/Formations";
 
 function App() {
   return (
@@ -22,9 +23,8 @@ function App() {
 
         <Route element={<ProtectedLayout />}>
           <Route path="/" element={<Dashboard />} />
-          <Route path="lessons" element={<Students />} />
-          <Route path="schools" element={<Students />} />
-          <Route path="formations" element={<Students />} />
+          <Route path="formations" element={<Formations />} />
+          <Route path="schools" element={<Schools />} />
         </Route>
       </Routes>
     </>

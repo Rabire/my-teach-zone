@@ -9,9 +9,10 @@ const Header = () => {
         <NavButton kind="/" />
         <NavButton kind="/formations" />
         <NavButton kind="/schools" />
-        <NavButton kind="/lessons" />
       </nav>
-      <Link to="/login">LOGOUT</Link>
+      <Link to="/login" className="hover:bg-gray-800 p-2">
+        LOGOUT
+      </Link>
     </header>
   );
 };
