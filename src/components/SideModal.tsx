@@ -8,12 +8,12 @@ const SideModal = () => {
   if (!isModalOpen) return null;
 
   return (
-    <div className="absolute right-0 h-full flex w-full ">
+    <div className="absolute right-0 h-full flex w-full">
       <div
         className="bg-black h-full w-full opacity-80 px-16"
         onClick={() => toggleSideModal("close")}
       />
-      <aside className=" bg-gray-700 p-4">
+      <aside className="bg-gray-700 p-4 overflow-y-scroll w-full">
         <WriteSchoolForm />
       </aside>
     </div>

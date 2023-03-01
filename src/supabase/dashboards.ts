@@ -25,12 +25,12 @@ export const getHome = async () => {
 export const refreshStudentsBoard = async () => {
   const userId = userTeacherStore.get()?.teacher.id;
 
-  const { data, error } = await supabase
+  const { data: schools, error } = await supabase
     .from("schools")
     .select("*, forms (*)")
     .eq("teacher_id", userId);
 
-  setStudentBoard(data as StudentBoard);
+  setStudentBoard({ schools } as StudentBoard);
 
   if (error) toast.error("Could not student board");
 };

@@ -7,7 +7,7 @@ import { refreshStudentsBoard } from "supabase/dashboards";
 
 const Schools = () => {
   const userTeacher = useStore(userTeacherStore);
-  const board = useStore(studentBoardStore);
+  const { schools } = useStore(studentBoardStore);
 
   if (!userTeacher) return null;
 
@@ -33,7 +33,7 @@ const Schools = () => {
           <h2 className="text-xl opacity-50">Schools</h2>
 
           <ul className="flex flex-col gap-2">
-            {board.map((lesson) => (
+            {schools.map((lesson) => (
               <div key={lesson.id} className="p-2 bg-gray-700 rounded">
                 {lesson.name}
               </div>

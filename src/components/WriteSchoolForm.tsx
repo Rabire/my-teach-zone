@@ -1,29 +1,35 @@
-import { useForm } from "react-hook-form";
-import { createSchool } from "supabase/formations";
-import { CreateSchool } from "utils/types";
+import { useStore } from "@nanostores/react";
+import { useFieldArray, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
+import { studentBoardStore } from "stores/boards";
+import { upsertSchools } from "supabase/formations";
+import { StudentBoard } from "utils/types";
 
 const WriteSchoolForm = () => {
+  const schools = useStore(studentBoardStore);
+
   const {
     register,
+    control,
     handleSubmit,
     formState: { errors },
-  } = useForm<CreateSchool>();
+  } = useForm<StudentBoard>({ defaultValues: schools });
 
-  const onSubmit = (data: any) => {
-    createSchool(data);
+  const { fields, append, prepend, remove } = useFieldArray({
+    control,
+    name: "schools",
+  });
+
+  const onSubmit = (data: StudentBoard) => {
+    upsertSchools(data);
   };
 
   const firstError = Object.values(errors)[0];
+  firstError && toast.error(firstError.message);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex gap-2">
-        <input
-          type="text"
-          className="input "
-          placeholder="Isitech"
-          {...register("name", { required: "Please enter a school name" })}
-        />
+    <form onSubmit={handleSubmit(onSubmit)} className="relative">
+      <div className="flex justify-end">
         <button
           type="submit"
           className="bg-violet-500 p-2 focus:outline-none hover:bg-violet-600 rounded"
@@ -31,23 +37,43 @@ const WriteSchoolForm = () => {
           Save
         </button>
       </div>
-      <p className="text-center text-red-500 text-sm">{firstError?.message}</p>
 
-      <div className="p-2 bg-gray-800 rounded flex flex-col gap-2 mt-4">
-        <input type="text" placeholder="BTS SIO" className="input" />
-        <div className="flex gap-4">
-          <div className="relative">
-            <label className="text-sm opacity-50">Start</label>
-            <input type="date" className="input" />
-          </div>
+      {fields.map((_, index) => (
+        <input
+          key={index}
+          type="text"
+          className="input mt-4"
+          placeholder="Isitech"
+          {...register(`schools.${index}.name`, {
+            required: "Please enter a school name",
+          })}
+        />
+      ))}
+    </form>
+  );
+};
 
-          <div className="relative">
-            <label className="text-sm opacity-50">End</label>
-            <input type="date" className="input" />
-          </div>
-        </div>
+export default WriteSchoolForm;
 
-        {/* <p className="text-sm opacity-50">Students</p>
+{
+  /* <div className="p-2 bg-gray-800 rounded flex flex-col gap-2 my-4">
+            <input type="text" placeholder="BTS SIO" className="input" />
+            <div className="flex gap-4">
+              <div className="relative">
+                <label className="text-sm opacity-50">Start</label>
+                <input type="date" className="input" />
+              </div>
+
+              <div className="relative">
+                <label className="text-sm opacity-50">End</label>
+                <input type="date" className="input" />
+              </div>
+            </div>
+          </div> */
+}
+
+{
+  /* <p className="text-sm opacity-50">Students</p>
 
         <ul className="flex gap-2 flex-wrap">
           <button
@@ -105,10 +131,5 @@ const WriteSchoolForm = () => {
           >
             Fredo OKUI
           </button>
-        </ul> */}
-      </div>
-    </form>
-  );
-};
-
-export default WriteSchoolForm;
+        </ul> */
+}
