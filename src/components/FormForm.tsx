@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { studentBoardStore } from "stores/boards";
 import { upsertForm } from "supabase/froms";
-import { CreateForm } from "utils/types";
+import { CreateForm, StudentBoardForm } from "utils/types";
 
 type Props = { defaultValues?: CreateForm };
 
@@ -17,7 +17,7 @@ const FormForm = ({ defaultValues }: Props) => {
   const isEditMode = Boolean(defaultValues);
 
   const onSubmit = (data: CreateForm) => {
-    upsertForm(data);
+    upsertForm(data as StudentBoardForm);
   };
 
   return (

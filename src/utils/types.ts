@@ -15,8 +15,14 @@ export type School = Database["public"]["Tables"]["schools"]["Row"];
 export type CreateSchool = Database["public"]["Tables"]["schools"]["Insert"];
 
 export type UserTeacher = { user: User; teacher: Teacher } | null;
+
+export type StudentBoardForm = Form & {
+  schools: School;
+  students: [{ count: number }];
+};
+
 export type StudentBoard = {
   schools: School[];
-  forms: (Form & { schools: School; students: [{ count: number }] })[];
+  forms: StudentBoardForm[];
   students: (Student & { forms: Form })[];
 };
