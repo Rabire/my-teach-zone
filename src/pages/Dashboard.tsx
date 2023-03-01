@@ -3,6 +3,7 @@ import { useStore } from "@nanostores/react";
 import { Form, Formation, Lesson, Student } from "utils/types";
 import FormationCard from "components/FormationCard";
 import StudentCard from "components/StudentCard";
+import { getHome } from "supabase/dashboard";
 
 const MOCK_FORMATION: Formation & { lesson: Lesson; form: Form } = {
   id: 1,
@@ -32,6 +33,8 @@ const Dashboard = () => {
   const userTeacher = useStore(userTeacherStore);
 
   if (!userTeacher) return null;
+
+  getHome(userTeacher.teacher.id);
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
