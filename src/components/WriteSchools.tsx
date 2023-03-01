@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { studentBoardStore } from "stores/boards";
-import { createSchool, deleteSchool, upsertSchools } from "supabase/formations";
+import { createSchool, deleteSchool, upsertSchools } from "supabase/schools";
 import { StudentBoard } from "utils/types";
 
 const WriteSchools = () => {
@@ -46,12 +46,14 @@ const WriteSchools = () => {
         </div>
       ))}
 
-      <button
-        type="submit"
-        className="bg-violet-500 p-2 hover:bg-violet-600 rounded w-full"
-      >
-        Save
-      </button>
+      {fields.length >= 1 && (
+        <button
+          type="submit"
+          className="bg-violet-500 p-2 hover:bg-violet-600 rounded w-full"
+        >
+          Save
+        </button>
+      )}
 
       <div className="flex gap-2 mt-4">
         <input

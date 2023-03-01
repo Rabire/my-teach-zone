@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/react";
 import { sideModalContentStore, setSideModal } from "stores/side-modal";
+import WriteForms from "./WriteForms";
 import WriteSchools from "./WriteSchools";
 
 const SideModal = () => {
@@ -14,7 +15,8 @@ const SideModal = () => {
         onClick={() => setSideModal("none")}
       />
       <aside className="bg-gray-700 p-4 overflow-y-scroll w-full">
-        {sideModalContent === "write-forms" && <WriteSchools />}
+        {sideModalContent === "write-schools" && <WriteSchools />}
+        {sideModalContent === "write-forms" && <WriteForms />}
       </aside>
     </div>
   );

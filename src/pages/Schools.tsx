@@ -17,28 +17,41 @@ const Schools = () => {
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
-      <div className="flex mb-4 justify-between w-full">
-        <h1 className="font-semibold text-4xl ">MY STUDENTS</h1>
-        <button
-          className="bg-violet-500 p-2  hover:bg-violet-600 rounded"
-          onClick={() => setSideModal("write-forms")}
-        >
-          Edit or create
-        </button>
-      </div>
+      <h1 className="font-semibold text-4xl mb-4">MY STUDENTS</h1>
 
       <div className="grid grid-cols-2 w-full gap-4">
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl opacity-50">Forms</h2>
-          <h2 className="text-xl opacity-50">Schools</h2>
+        <div className="flex flex-col gap-4">
+          <button
+            onClick={() => setSideModal("write-forms")}
+            className="flex flex-col gap-2"
+          >
+            <h2 className="text-xl opacity-50 text-start">Froms</h2>
+            {/* {schools.length <= 0 && (
+              <p className="opacity-50 text-sm italic">No record...</p>
+            )}
+            {schools.map((lesson) => (
+              <div key={lesson.id} className="p-2 bg-gray-700 rounded">
+                {lesson.name}
+              </div>
+            ))} */}
+            WIP
+          </button>
 
-          <ul className="flex flex-col gap-2">
+          <button
+            onClick={() => setSideModal("write-schools")}
+            className="flex flex-col gap-2"
+          >
+            <h2 className="text-xl opacity-50 text-start">Schools</h2>
+
+            {schools.length <= 0 && (
+              <p className="opacity-50 text-sm italic">No record...</p>
+            )}
             {schools.map((lesson) => (
               <div key={lesson.id} className="p-2 bg-gray-700 rounded">
                 {lesson.name}
               </div>
             ))}
-          </ul>
+          </button>
         </div>
 
         <div className="flex flex-col gap-2">
