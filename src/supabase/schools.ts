@@ -4,13 +4,10 @@ import supabase from "supabase";
 import { School, StudentBoard } from "utils/types";
 import { refreshStudentsBoard } from "./dashboards";
 
-export const upsertSchools = async (fields: StudentBoard) => {
-  const schools = fields.schools.map((school) => {
-    const { forms, ...rest } = school;
-    return rest;
-  });
-
-  const { status, error } = await supabase.from("schools").upsert(schools);
+export const upsertSchools = async (board: StudentBoard) => {
+  const { status, error } = await supabase
+    .from("schools")
+    .upsert(board.schools);
 
   if (status === 201) {
     toast.success("Schools edited");

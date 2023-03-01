@@ -7,7 +7,7 @@ import { refreshStudentsBoard } from "supabase/dashboards";
 
 const Schools = () => {
   const userTeacher = useStore(userTeacherStore);
-  const { schools } = useStore(studentBoardStore);
+  const { schools, forms } = useStore(studentBoardStore);
 
   if (!userTeacher) return null;
 
@@ -26,15 +26,20 @@ const Schools = () => {
             className="flex flex-col gap-2"
           >
             <h2 className="text-xl opacity-50 text-start">Froms</h2>
-            {/* {schools.length <= 0 && (
+            {forms.length <= 0 && (
               <p className="opacity-50 text-sm italic">No record...</p>
             )}
-            {schools.map((lesson) => (
-              <div key={lesson.id} className="p-2 bg-gray-700 rounded">
-                {lesson.name}
+            {forms.map((from) => (
+              <div
+                key={from.id}
+                className="p-2 bg-gray-700 rounded text-start flex gap-2 justify-between"
+              >
+                <p className="text-lg">{from.name}</p>
+                <p className="opacity-50">
+                  {from.schools.name} - {from.students[0].count} students
+                </p>
               </div>
-            ))} */}
-            WIP
+            ))}
           </button>
 
           <button
@@ -47,7 +52,7 @@ const Schools = () => {
               <p className="opacity-50 text-sm italic">No record...</p>
             )}
             {schools.map((lesson) => (
-              <div key={lesson.id} className="p-2 bg-gray-700 rounded">
+              <div key={lesson.id} className="p-2 bg-gray-700 rounded text-lg">
                 {lesson.name}
               </div>
             ))}

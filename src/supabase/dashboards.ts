@@ -23,16 +23,24 @@ import { StudentBoard } from "utils/types";
 export const refreshStudentsBoard = async () => {
   const userId = userTeacherStore.get()?.teacher.id;
 
-  const { data: schools, error } = await supabase
+  const { data: schools, error: schoolError } = await supabase
     .from("schools")
-    .select("*, forms (*)")
+    .select("*")
     .eq("teacher_id", userId);
 
-  if (!schools) return;
+  const { data: forms, error: formsError } = await supabase
+    .from("forms")
+    .select("*, schools (*), students(count)")
+    .eq("teacher_id", userId);
 
-  console.log(schools.map((s) => s.forms));
+  // const { data: students, error: studentsError } = await supabase
+  //   .from("students")
+  //   .select("*, form (*)")
+  //   .eq("teacher_id", userId);
 
-  setStudentBoard({ schools } as StudentBoard);
+  console.log(forms);
 
-  if (error) toast.error("Could not student board");
+  setStudentBoard({ schools, forms } as StudentBoard);
+
+  if (schoolError || formsError) toast.error("Could not get board");
 };
