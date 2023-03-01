@@ -63,7 +63,7 @@ const Schools = () => {
           onClick={() => setSideModal("write-students")}
           className="flex flex-col gap-2"
         >
-          <h2 className="text-xl opacity-50 text-start">Schools</h2>
+          <h2 className="text-xl opacity-50 text-start">Students</h2>
 
           {students.length <= 0 && (
             <p className="opacity-50 text-sm italic">No record...</p>
