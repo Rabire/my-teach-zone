@@ -1,40 +1,40 @@
-import { userProfileStore } from "stores/profile";
+import { userTeacherStore } from "stores/user";
 import { useStore } from "@nanostores/react";
-import { Link } from "react-router-dom";
-import { Formation, Student } from "utils/types";
+import { Form, Formation, Lesson, Student } from "utils/types";
 import FormationCard from "components/FormationCard";
 import StudentCard from "components/StudentCard";
 
-const MOCK_FORMATION: Formation = {
+const MOCK_FORMATION: Formation & { lesson: Lesson; form: Form } = {
   id: 1,
-  start: new Date("2023-02-27"),
-  end: new Date("2023-03-03"),
-  lesson: { id: 44, name: "React avancé" },
+  lesson_id: 44,
+  lesson: { id: 44, name: "React avancé", content: "" },
+  form_id: 1,
   form: {
     id: 1,
-    end_month: new Date("2022").toISOString(),
+    end: new Date("2022").toISOString(),
     name: "B3 Dev",
-    school: 101,
-    start_month: new Date("2023").toISOString(),
-    created_at: new Date().toISOString(),
+    school_id: 101,
+    start: new Date("2023").toISOString(),
   },
+  end: new Date("2023").toISOString(),
+  start: new Date("2023").toISOString(),
 };
 
 const MOCK_STUDENT: Student = {
   id: 1,
   name: "Louis DUPONT",
-  class: 88,
+  form_id: 88,
   email: "a@a",
-  created_at: new Date().toISOString(),
+  content: "",
 };
 
 const Dashboard = () => {
-  const userProfile = useStore(userProfileStore);
+  const userTeacher = useStore(userTeacherStore);
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
       <h1 className="font-semibold text-4xl mb-4">
-        Hi {userProfile?.profile.name}
+        Hi {userTeacher?.teacher.name}
       </h1>
 
       <div className="grid grid-cols-2 w-full gap-4">

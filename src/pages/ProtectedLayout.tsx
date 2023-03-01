@@ -3,27 +3,27 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useStore } from "@nanostores/react";
 
-import { userProfileStore, setUserProfile } from "stores/profile";
+import { userTeacherStore, setUserTeacher } from "stores/user";
 import { getMe } from "supabase/auth";
 import Header from "components/Header";
 
 const ProtectedLayout = () => {
-  const userProfile = useStore(userProfileStore);
+  const userTeacher = useStore(userTeacherStore);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     getMe().then((data) => {
-      setUserProfile(data.data);
+      setUserTeacher(data.data);
 
       if (data.error) {
-        toast.error("Could not retreive your profile");
+        toast.error("Could not retreive your teacher");
         navigate("/login");
       }
     });
   }, []);
 
-  if (!userProfile) return <p>Loading ...</p>;
+  if (!userTeacher) return <p>Loading ...</p>;
 
   return (
     <div className="flex">

@@ -4,103 +4,141 @@ export type Json =
   | boolean
   | null
   | { [key: string]: Json }
-  | Json[];
+  | Json[]
 
 export interface Database {
   public: {
     Tables: {
-      class: {
+      formations: {
         Row: {
-          created_at: string;
-          end_month: string;
-          id: number;
-          name: string;
-          school: number;
-          start_month: string;
-        };
+          end: string
+          form_id: number
+          id: number
+          lesson_id: number
+          start: string
+        }
         Insert: {
-          created_at?: string;
-          end_month: string;
-          id?: number;
-          name: string;
-          school: number;
-          start_month: string;
-        };
+          end: string
+          form_id: number
+          id?: number
+          lesson_id: number
+          start: string
+        }
         Update: {
-          created_at?: string;
-          end_month?: string;
-          id?: number;
-          name?: string;
-          school?: number;
-          start_month?: string;
-        };
-      };
-      profiles: {
+          end?: string
+          form_id?: number
+          id?: number
+          lesson_id?: number
+          start?: string
+        }
+      }
+      forms: {
         Row: {
-          id: string;
-          name: string;
-        };
+          end: string
+          id: number
+          name: string
+          school_id: number
+          start: string
+        }
         Insert: {
-          id: string;
-          name: string;
-        };
+          end: string
+          id?: number
+          name: string
+          school_id: number
+          start: string
+        }
         Update: {
-          id?: string;
-          name?: string;
-        };
-      };
+          end?: string
+          id?: number
+          name?: string
+          school_id?: number
+          start?: string
+        }
+      }
+      lessons: {
+        Row: {
+          content: string | null
+          id: number
+          name: string
+        }
+        Insert: {
+          content?: string | null
+          id?: number
+          name: string
+        }
+        Update: {
+          content?: string | null
+          id?: number
+          name?: string
+        }
+      }
       school: {
         Row: {
-          created_at: string | null;
-          id: number;
-          name: string;
-        };
+          created_at: string | null
+          id: number
+          name: string
+        }
         Insert: {
-          created_at?: string | null;
-          id?: number;
-          name: string;
-        };
+          created_at?: string | null
+          id?: number
+          name: string
+        }
         Update: {
-          created_at?: string | null;
-          id?: number;
-          name?: string;
-        };
-      };
+          created_at?: string | null
+          id?: number
+          name?: string
+        }
+      }
       students: {
         Row: {
-          class: number | null;
-          created_at: string | null;
-          email: string | null;
-          id: number;
-          name: string | null;
-        };
+          content: string | null
+          email: string
+          form_id: number
+          id: number
+          name: string
+        }
         Insert: {
-          class?: number | null;
-          created_at?: string | null;
-          email?: string | null;
-          id?: number;
-          name?: string | null;
-        };
+          content?: string | null
+          email: string
+          form_id: number
+          id?: number
+          name: string
+        }
         Update: {
-          class?: number | null;
-          created_at?: string | null;
-          email?: string | null;
-          id?: number;
-          name?: string | null;
-        };
-      };
-    };
+          content?: string | null
+          email?: string
+          form_id?: number
+          id?: number
+          name?: string
+        }
+      }
+      teachers: {
+        Row: {
+          id: string
+          name: string
+        }
+        Insert: {
+          id: string
+          name: string
+        }
+        Update: {
+          id?: string
+          name?: string
+        }
+      }
+    }
     Views: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     Functions: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     Enums: {
-      [_ in never]: never;
-    };
+      [_ in never]: never
+    }
     CompositeTypes: {
-      [_ in never]: never;
-    };
-  };
+      [_ in never]: never
+    }
+  }
 }
+

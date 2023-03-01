@@ -35,7 +35,7 @@ const Register = () => {
     if (error) toast.error(error.toString());
 
     if (data.user) {
-      toast.success("Profile created, please confirm your email");
+      toast.success("Teacher created, please confirm your email");
       navigate("/login");
     }
   };
@@ -109,4 +109,4 @@ const Register = () => {
 };
 
 export default Register;
-// TODO: use unique component with login screen
+// TODO: do not duplicate code #11
