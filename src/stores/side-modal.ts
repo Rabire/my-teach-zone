@@ -1,7 +1,9 @@
 import { atom } from "nanostores";
 
-export const isSideModalOpenStore = atom(false);
+type Content = "none" | "write-schools" | "write-forms";
 
-export const toggleSideModal = (action: "open" | "close") => {
-  isSideModalOpenStore.set(action === "open");
+export const sideModalContentStore = atom<Content>("none");
+
+export const setSideModal = (content: Content) => {
+  sideModalContentStore.set(content);
 };

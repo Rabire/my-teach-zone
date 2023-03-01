@@ -5,7 +5,7 @@ import { studentBoardStore } from "stores/boards";
 import { createSchool, deleteSchool, upsertSchools } from "supabase/formations";
 import { StudentBoard } from "utils/types";
 
-const WriteSchoolForm = () => {
+const WriteSchools = () => {
   const board = useStore(studentBoardStore);
 
   const { register, control, handleSubmit } = useForm<StudentBoard>({
@@ -25,8 +25,6 @@ const WriteSchoolForm = () => {
       onSubmit={handleSubmit(onSubmit)}
       className="relative flex flex-col gap-2 "
     >
-      <h1 className="text-xl">SCHOOL LIST :</h1>
-
       {fields.map((_, index) => (
         <div className="flex gap-2 ">
           <input
@@ -75,7 +73,7 @@ const WriteSchoolForm = () => {
   );
 };
 
-export default WriteSchoolForm;
+export default WriteSchools;
 
 {
   /* <div className="p-2 bg-gray-800 rounded flex flex-col gap-2 my-4">

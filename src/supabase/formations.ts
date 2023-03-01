@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { toggleSideModal } from "stores/side-modal";
+import { setSideModal } from "stores/side-modal";
 import supabase from "supabase";
 import { School, StudentBoard } from "utils/types";
 import { refreshStudentsBoard } from "./dashboards";
@@ -15,7 +15,7 @@ export const upsertSchools = async (fields: StudentBoard) => {
   if (status === 201) {
     toast.success("Schools edited");
     refreshStudentsBoard();
-    toggleSideModal("close");
+    setSideModal("none");
   }
 
   if (error) toast.error("Could not edit schools");
@@ -30,7 +30,7 @@ export const deleteSchool = async (school: School) => {
   if (status === 204) {
     toast.success("School deleted");
     refreshStudentsBoard();
-    toggleSideModal("close");
+    setSideModal("none");
   }
 
   if (error) toast.error(`Could not delete ${school.name} school`);
@@ -42,7 +42,7 @@ export const createSchool = async (name: string) => {
   if (status === 201) {
     toast.success("School created");
     refreshStudentsBoard();
-    toggleSideModal("close");
+    setSideModal("none");
   }
 
   if (error) toast.error(`Could not create ${name} school`);

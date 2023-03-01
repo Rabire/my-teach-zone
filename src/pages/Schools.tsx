@@ -1,7 +1,7 @@
 import { useStore } from "@nanostores/react";
 import { useEffect } from "react";
 import { studentBoardStore } from "stores/boards";
-import { toggleSideModal } from "stores/side-modal";
+import { setSideModal } from "stores/side-modal";
 import { userTeacherStore } from "stores/user";
 import { refreshStudentsBoard } from "supabase/dashboards";
 
@@ -21,7 +21,7 @@ const Schools = () => {
         <h1 className="font-semibold text-4xl ">MY STUDENTS</h1>
         <button
           className="bg-violet-500 p-2  hover:bg-violet-600 rounded"
-          onClick={() => toggleSideModal("open")}
+          onClick={() => setSideModal("write-forms")}
         >
           Edit or create
         </button>
