@@ -6,6 +6,7 @@ import { useStore } from "@nanostores/react";
 import { userTeacherStore, setUserTeacher } from "stores/user";
 import { getMe } from "supabase/auth";
 import Header from "components/Header";
+import SideModal from "components/SideModal";
 
 const ProtectedLayout = () => {
   const userTeacher = useStore(userTeacherStore);
@@ -32,6 +33,8 @@ const ProtectedLayout = () => {
       <main className="p-10 w-full">
         <Outlet />
       </main>
+
+      <SideModal />
     </div>
   );
 };
