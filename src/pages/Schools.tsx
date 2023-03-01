@@ -20,7 +20,7 @@ const Schools = () => {
       <div className="flex mb-4 justify-between w-full">
         <h1 className="font-semibold text-4xl ">MY STUDENTS</h1>
         <button
-          className="bg-violet-500 p-2 focus:outline-none hover:bg-violet-600 rounded"
+          className="bg-violet-500 p-2  hover:bg-violet-600 rounded"
           onClick={() => toggleSideModal("open")}
         >
           Edit or create

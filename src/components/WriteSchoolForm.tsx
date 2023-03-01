@@ -1,45 +1,34 @@
 import { useStore } from "@nanostores/react";
+import { useState } from "react";
 import { useFieldArray, useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import { studentBoardStore } from "stores/boards";
-import { deleteSchool, upsertSchools } from "supabase/formations";
+import { createSchool, deleteSchool, upsertSchools } from "supabase/formations";
 import { StudentBoard } from "utils/types";
 
 const WriteSchoolForm = () => {
   const board = useStore(studentBoardStore);
 
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<StudentBoard>({ defaultValues: board });
-
-  const { fields, append, prepend, remove } = useFieldArray({
-    control,
-    name: "schools",
+  const { register, control, handleSubmit } = useForm<StudentBoard>({
+    defaultValues: board,
   });
+
+  const [newSchoolName, setNewSchoolName] = useState("");
+
+  const { fields } = useFieldArray({ control, name: "schools" });
 
   const onSubmit = (data: StudentBoard) => {
     upsertSchools(data);
   };
 
-  const firstError = Object.values(errors)[0];
-  firstError && toast.error(firstError.message);
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="relative">
-      <div className="flex justify-end">
-        <button
-          type="submit"
-          className="bg-violet-500 p-2 focus:outline-none hover:bg-violet-600 rounded"
-        >
-          Save
-        </button>
-      </div>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="relative flex flex-col gap-2 "
+    >
+      <h1 className="text-xl">SCHOOL LIST :</h1>
 
-      {fields.map((school, index) => (
-        <div className="flex gap-2 mt-4">
+      {fields.map((_, index) => (
+        <div className="flex gap-2 ">
           <input
             key={index}
             type="text"
@@ -58,6 +47,30 @@ const WriteSchoolForm = () => {
           </button>
         </div>
       ))}
+
+      <button
+        type="submit"
+        className="bg-violet-500 p-2 hover:bg-violet-600 rounded w-full"
+      >
+        Save
+      </button>
+
+      <div className="flex gap-2 mt-4">
+        <input
+          type="text"
+          className="input"
+          placeholder="Isitech"
+          value={newSchoolName}
+          onChange={(e) => setNewSchoolName(e.target.value)}
+        />
+        <button
+          className="bg-violet-500 p-2 hover:bg-violet-600 rounded"
+          type="button"
+          onClick={() => createSchool(newSchoolName)}
+        >
+          Add
+        </button>
+      </div>
     </form>
   );
 };
@@ -121,7 +134,7 @@ export default WriteSchoolForm;
           <input type="text" placeholder="Abdel DUBOIS" className="input" />
           <button
             type="button"
-            className="bg-violet-500 p-2 focus:outline-none hover:bg-violet-600 rounded"
+            className="bg-violet-500 p-2  hover:bg-violet-600 rounded"
           >
             Add
           </button>

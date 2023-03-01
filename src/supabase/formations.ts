@@ -14,8 +14,8 @@ export const upsertSchools = async (fields: StudentBoard) => {
 
   if (status === 201) {
     toast.success("Schools edited");
-    toggleSideModal("close");
     refreshStudentsBoard();
+    toggleSideModal("close");
   }
 
   if (error) toast.error("Could not edit schools");
@@ -30,9 +30,20 @@ export const deleteSchool = async (school: School) => {
   if (status === 204) {
     toast.success("School deleted");
     refreshStudentsBoard();
+    toggleSideModal("close");
   }
 
-  console.log({ status });
-
   if (error) toast.error(`Could not delete ${school.name} school`);
+};
+
+export const createSchool = async (name: string) => {
+  const { status, error } = await supabase.from("schools").insert({ name });
+
+  if (status === 201) {
+    toast.success("School created");
+    refreshStudentsBoard();
+    toggleSideModal("close");
+  }
+
+  if (error) toast.error(`Could not create ${name} school`);
 };

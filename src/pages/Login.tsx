@@ -61,7 +61,7 @@ const Login = () => {
         <button
           disabled={Boolean(firstError)}
           type="submit"
-          className="bg-violet-500 border-0 py-2 px-8 focus:outline-none hover:bg-violet-600 rounded text-lg disabled:opacity-50"
+          className="bg-violet-500 border-0 py-2 px-8  hover:bg-violet-600 rounded text-lg disabled:opacity-50"
         >
           Login
         </button>
