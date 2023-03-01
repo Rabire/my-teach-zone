@@ -2,18 +2,18 @@ import { useStore } from "@nanostores/react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { studentBoardStore } from "stores/boards";
-import { upsertSchools } from "supabase/formations";
+import { deleteSchool, upsertSchools } from "supabase/formations";
 import { StudentBoard } from "utils/types";
 
 const WriteSchoolForm = () => {
-  const schools = useStore(studentBoardStore);
+  const board = useStore(studentBoardStore);
 
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<StudentBoard>({ defaultValues: schools });
+  } = useForm<StudentBoard>({ defaultValues: board });
 
   const { fields, append, prepend, remove } = useFieldArray({
     control,
@@ -38,16 +38,25 @@ const WriteSchoolForm = () => {
         </button>
       </div>
 
-      {fields.map((_, index) => (
-        <input
-          key={index}
-          type="text"
-          className="input mt-4"
-          placeholder="Isitech"
-          {...register(`schools.${index}.name`, {
-            required: "Please enter a school name",
-          })}
-        />
+      {fields.map((school, index) => (
+        <div className="flex gap-2 mt-4">
+          <input
+            key={index}
+            type="text"
+            className="input "
+            placeholder="Isitech"
+            {...register(`schools.${index}.name`, {
+              required: "Please enter a school name",
+            })}
+          />
+          <button
+            className="bg-red-700 hover:bg-red-800 rounded p-2"
+            type="button"
+            onClick={() => deleteSchool(board.schools[index])}
+          >
+            Delete
+          </button>
+        </div>
       ))}
     </form>
   );

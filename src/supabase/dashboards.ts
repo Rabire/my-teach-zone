@@ -17,8 +17,6 @@ export const getHome = async () => {
 
   const students = null;
 
-  console.log({ formations, error });
-
   return { currentFormations, incommingFormations, students };
 };
 
