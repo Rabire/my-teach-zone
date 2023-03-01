@@ -4,7 +4,9 @@ import supabase from "supabase";
 import { CreateForm } from "utils/types";
 import { refreshStudentsBoard } from "./dashboards";
 
-export const upsertForm = async (form: CreateForm) => {
+export const upsertForm = async (data: CreateForm) => {
+  const { schools, students, ...form } = data;
+
   const { status, error } = await supabase.from("forms").upsert(form);
 
   if (status === 201) {
@@ -12,8 +14,6 @@ export const upsertForm = async (form: CreateForm) => {
     refreshStudentsBoard();
     setSideModal("none");
   }
-
-  console.log({ error });
 
   if (error) toast.error("Error while editting/creating form");
 };
