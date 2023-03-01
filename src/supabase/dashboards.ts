@@ -33,14 +33,17 @@ export const refreshStudentsBoard = async () => {
     .select("*, schools (*), students(count)")
     .eq("teacher_id", userId);
 
-  // const { data: students, error: studentsError } = await supabase
-  //   .from("students")
-  //   .select("*, form (*)")
-  //   .eq("teacher_id", userId);
+  const { data: students, error: studentsError } = await supabase
+    .from("students")
+    .select("*, forms (*)")
+    .eq("teacher_id", userId);
 
-  console.log(forms);
+  setStudentBoard({
+    schools: schools || [],
+    forms: forms || [],
+    students: students || [],
+  } as StudentBoard);
 
-  setStudentBoard({ schools, forms } as StudentBoard);
-
-  if (schoolError || formsError) toast.error("Could not get board");
+  if (schoolError || formsError || studentsError)
+    toast.error("Could not get board");
 };

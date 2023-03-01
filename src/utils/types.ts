@@ -16,4 +16,5 @@ export type UserTeacher = { user: User; teacher: Teacher } | null;
 export type StudentBoard = {
   schools: School[];
   forms: (Form & { schools: School; students: [{ count: number }] })[];
+  students: (Student & { forms: Form })[];
 };

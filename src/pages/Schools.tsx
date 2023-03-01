@@ -7,7 +7,7 @@ import { refreshStudentsBoard } from "supabase/dashboards";
 
 const Schools = () => {
   const userTeacher = useStore(userTeacherStore);
-  const { schools, forms } = useStore(studentBoardStore);
+  const { schools, forms, students } = useStore(studentBoardStore);
 
   if (!userTeacher) return null;
 
@@ -59,9 +59,21 @@ const Schools = () => {
           </button>
         </div>
 
-        <div className="flex flex-col gap-2">
-          <h2 className="text-xl opacity-50">Students</h2>
-        </div>
+        <button
+          onClick={() => setSideModal("write-students")}
+          className="flex flex-col gap-2"
+        >
+          <h2 className="text-xl opacity-50 text-start">Schools</h2>
+
+          {students.length <= 0 && (
+            <p className="opacity-50 text-sm italic">No record...</p>
+          )}
+          {students.map((student) => (
+            <div key={student.id} className="p-2 bg-gray-700 rounded text-lg">
+              {student.name}
+            </div>
+          ))}
+        </button>
       </div>
     </div>
   );
