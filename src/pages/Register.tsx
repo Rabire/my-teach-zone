@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 import { signUp } from "supabase/auth";
 
-type RegisterInputs = {
+export type RegisterInputs = {
   name: string;
   email: string;
   password: string;
@@ -30,7 +30,7 @@ const Register = () => {
       return;
     }
 
-    const { data, error } = await signUp(inputs.email, inputs.password);
+    const { data, error } = await signUp(inputs);
 
     if (error) toast.error(error.toString());
 

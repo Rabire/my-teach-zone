@@ -2,8 +2,10 @@ import { User } from "@supabase/supabase-js";
 import { Database } from "supabase/schema";
 
 export type Teacher = Database["public"]["Tables"]["teachers"]["Row"];
-export type Lesson = Database["public"]["Tables"]["lessons"]["Row"];
 export type Formation = Database["public"]["Tables"]["formations"]["Row"];
+
+export type Lesson = Database["public"]["Tables"]["lessons"]["Row"];
+export type CreateLesson = Database["public"]["Tables"]["lessons"]["Insert"];
 
 export type Student = Database["public"]["Tables"]["students"]["Row"];
 export type CreateStudent =

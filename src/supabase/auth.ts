@@ -1,14 +1,20 @@
+import { RegisterInputs } from "pages/Register";
 import { UserTeacher } from "utils/types";
 import supabase from ".";
 
-// TODO: register name #4
-export const signUp = async (email: string, password: string) => {
+export const signUp = async (inputs: RegisterInputs) => {
   const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
+    email: inputs.email,
+    password: inputs.password,
   });
 
-  return { data, error };
+  const { error: createTeacherError } = await supabase
+    .from("teacher")
+    .insert({ name: inputs.name });
+
+  console.log({ error, createTeacherError });
+
+  return { data, error: error || createTeacherError };
 };
 
 export const login = async (email: string, password: string) => {
