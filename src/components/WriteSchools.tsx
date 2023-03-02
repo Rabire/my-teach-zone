@@ -26,7 +26,7 @@ const WriteSchools = () => {
       className="relative flex flex-col gap-2 "
     >
       {fields.map((_, index) => (
-        <div className="flex gap-2 ">
+        <div key={index} className="flex gap-2">
           <input
             key={index}
             type="text"

@@ -23,7 +23,7 @@ const EditForm = () => {
       className="relative flex flex-col mt-8 gap-6"
     >
       {fields.map((_, index) => (
-        <div className=" flex flex-col gap-2">
+        <div key={index} className=" flex flex-col gap-2">
           <input
             type="text"
             className="input"
