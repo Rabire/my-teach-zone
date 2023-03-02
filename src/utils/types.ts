@@ -9,7 +9,10 @@ export type Student = Database["public"]["Tables"]["students"]["Row"];
 export type CreateStudent = Database["public"]["Tables"]["students"]["Insert"];
 
 export type Form = Database["public"]["Tables"]["forms"]["Row"];
-export type CreateForm = Database["public"]["Tables"]["forms"]["Insert"];
+export type CreateForm = Database["public"]["Tables"]["forms"]["Insert"] & {
+  schools?: School[];
+  students?: (Student & { forms: Form })[];
+};
 
 export type School = Database["public"]["Tables"]["schools"]["Row"];
 export type CreateSchool = Database["public"]["Tables"]["schools"]["Insert"];
