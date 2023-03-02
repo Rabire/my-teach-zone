@@ -38,7 +38,8 @@ export const refreshFormationBoard = async () => {
     formations: formations || [],
   } as LessonBoard);
 
-  if (formationError || lessonError) toast.error("Could not get board");
+  if (formationError || lessonError)
+    toast.error("Could not get formation board");
 };
 
 export const refreshStudentsBoard = async () => {
@@ -66,5 +67,10 @@ export const refreshStudentsBoard = async () => {
   } as StudentBoard);
 
   if (schoolError || formsError || studentsError)
-    toast.error("Could not get board");
+    toast.error("Could not get students board");
+};
+
+export const refreshAllDashboards = () => {
+  refreshStudentsBoard();
+  refreshFormationBoard();
 };

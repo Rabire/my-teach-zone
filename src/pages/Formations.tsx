@@ -1,19 +1,10 @@
 import { useStore } from "@nanostores/react";
-import { useEffect } from "react";
 import { lessonsBoardStore } from "stores/boards";
 import { setSideModal } from "stores/side-modal";
-import { userTeacherStore } from "stores/user";
-import { refreshFormationBoard } from "supabase/dashboards";
+import { formatDate } from "utils/date";
 
 const Formations = () => {
-  const userTeacher = useStore(userTeacherStore);
   const { lessons, formations } = useStore(lessonsBoardStore);
-
-  if (!userTeacher) return null;
-
-  useEffect(() => {
-    refreshFormationBoard();
-  }, []);
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
@@ -53,7 +44,10 @@ const Formations = () => {
               className="p-2 bg-gray-700 rounded text-lg flex flex-col items-start"
             >
               <p className="">{formation.lessons.name}</p>
-              <p className="opacity-50">{formation.forms.name}</p>
+              <p className="opacity-50 text-sm">
+                {`${formation.forms.name} | ${formatDate(formation.start)} - 
+                ${formatDate(formation.end)}`}
+              </p>
             </div>
           ))}
         </button>

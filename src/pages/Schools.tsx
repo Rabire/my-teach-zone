@@ -1,19 +1,9 @@
 import { useStore } from "@nanostores/react";
-import { useEffect } from "react";
 import { studentBoardStore } from "stores/boards";
 import { setSideModal } from "stores/side-modal";
-import { userTeacherStore } from "stores/user";
-import { refreshStudentsBoard } from "supabase/dashboards";
 
 const Schools = () => {
-  const userTeacher = useStore(userTeacherStore);
   const { schools, forms, students } = useStore(studentBoardStore);
-
-  if (!userTeacher) return null;
-
-  useEffect(() => {
-    refreshStudentsBoard();
-  }, []);
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">

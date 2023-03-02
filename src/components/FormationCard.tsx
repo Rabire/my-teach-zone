@@ -1,8 +1,7 @@
 import { format } from "date-fns";
 import { Link } from "react-router-dom";
+import { formatDate } from "utils/date";
 import { Formation, Lesson, Form } from "utils/types";
-
-const formatDate = (date: string) => format(new Date(date), "dd MMM");
 
 type Props = { formation: Formation & { lesson: Lesson; form: Form } };
 

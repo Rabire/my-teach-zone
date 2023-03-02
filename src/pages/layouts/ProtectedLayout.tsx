@@ -7,6 +7,10 @@ import { userTeacherStore, setUserTeacher } from "stores/user";
 import { getMe } from "supabase/auth";
 import Header from "components/Header";
 import SideModal from "components/SideModal";
+import {
+  refreshFormationBoard,
+  refreshStudentsBoard,
+} from "supabase/dashboards";
 
 const ProtectedLayout = () => {
   const userTeacher = useStore(userTeacherStore);
@@ -17,9 +21,13 @@ const ProtectedLayout = () => {
     getMe().then((data) => {
       setUserTeacher(data.data);
 
+      refreshFormationBoard();
+      refreshStudentsBoard();
+
       if (data.error) {
         toast.error("Could not retreive your teacher");
         navigate("/login");
+        return;
       }
     });
   }, []);
