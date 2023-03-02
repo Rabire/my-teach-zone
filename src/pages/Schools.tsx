@@ -69,8 +69,12 @@ const Schools = () => {
             <p className="opacity-50 text-sm italic">No record...</p>
           )}
           {students.map((student) => (
-            <div key={student.id} className="p-2 bg-gray-700 rounded text-lg">
-              {student.name}
+            <div
+              key={student.id}
+              className="p-2 bg-gray-700 rounded text-lg flex flex-col items-start"
+            >
+              <p className="">{student.name}</p>
+              <p className="opacity-50">{student.forms.name}</p>
             </div>
           ))}
         </button>

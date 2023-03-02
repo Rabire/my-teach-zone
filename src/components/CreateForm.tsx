@@ -2,9 +2,9 @@ import { useStore } from "@nanostores/react";
 import { useForm } from "react-hook-form";
 import { studentBoardStore } from "stores/boards";
 import { upsertForm } from "supabase/froms";
-import { CreateForm } from "utils/types";
+import type { CreateForm } from "utils/types";
 
-const CreateForm = () => {
+const CreateFormComponent = () => {
   const { schools } = useStore(studentBoardStore);
 
   const { register, handleSubmit } = useForm<CreateForm>();
@@ -58,4 +58,4 @@ const CreateForm = () => {
   );
 };
 
-export default CreateForm;
+export default CreateFormComponent;
