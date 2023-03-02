@@ -1,5 +1,5 @@
 import { atom } from "nanostores";
-import { StudentBoard } from "utils/types";
+import { LessonBoard, StudentBoard } from "utils/types";
 
 export const studentBoardStore = atom<StudentBoard>({
   schools: [],
@@ -9,4 +9,13 @@ export const studentBoardStore = atom<StudentBoard>({
 
 export const setStudentBoard = (newBoard: StudentBoard) => {
   studentBoardStore.set(newBoard);
+};
+
+export const lessonsBoardStore = atom<LessonBoard>({
+  lessons: [],
+  formations: [],
+});
+
+export const setLessonBoard = (newBoard: LessonBoard) => {
+  lessonsBoardStore.set(newBoard);
 };

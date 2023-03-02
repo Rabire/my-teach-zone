@@ -1,6 +1,8 @@
 import { useStore } from "@nanostores/react";
 import { sideModalContentStore, setSideModal } from "stores/side-modal";
+import WriteFormation from "./WriteFormations";
 import WriteForms from "./WriteForms";
+import WriteLesson from "./WriteLesson";
 import WriteSchools from "./WriteSchools";
 import WriteStudents from "./WriteStudents";
 
@@ -19,6 +21,8 @@ const SideModal = () => {
         {sideModalContent === "write-schools" && <WriteSchools />}
         {sideModalContent === "write-forms" && <WriteForms />}
         {sideModalContent === "write-students" && <WriteStudents />}
+        {sideModalContent === "write-lessons" && <WriteLesson />}
+        {sideModalContent === "write-formation" && <WriteFormation />}
       </aside>
     </div>
   );

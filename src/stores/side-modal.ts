@@ -1,6 +1,12 @@
 import { atom } from "nanostores";
 
-type Content = "none" | "write-schools" | "write-forms" | "write-students";
+type Content =
+  | "none"
+  | "write-schools"
+  | "write-forms"
+  | "write-students"
+  | "write-lessons"
+  | "write-formation";
 
 export const sideModalContentStore = atom<Content>("none");
 

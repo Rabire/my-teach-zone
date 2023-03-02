@@ -27,6 +27,11 @@ export type StudentBoardForm = Form & {
   students: [{ count: number }];
 };
 
+export type LessonBoard = {
+  lessons: Lesson[];
+  formations: (Formation & { forms: Form; lessons: Lesson })[];
+};
+
 export type StudentBoard = {
   schools: School[];
   forms: StudentBoardForm[];
