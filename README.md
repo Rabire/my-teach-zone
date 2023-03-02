@@ -2,11 +2,11 @@
 
 Est une application permettant à des profs gérer ses promos d'étudiants et cours. Elle a été réalisée
 
-Accédez au projet sur [my-teach-zone.rabire.com](my-teach-zone.rabire.com)
+Accédez au projet sur [https://my-teach-zone.vercel.app](https://my-teach-zone.vercel.app)
 
 ## Déploiement
 
-L'appli est dockerizee et hébergée sur un vps linux
+L'appli est hebergee avec [Vercel](https://vercel.com/)
 
 ## Projet
 
