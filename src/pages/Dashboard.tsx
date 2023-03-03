@@ -44,7 +44,7 @@ const DashboardComponent = () => {
         BONJOUR {userTeacher.teacher.name.toUpperCase()}
       </h1>
 
-      <h2 className="mb-4 text-red-400">(MOCKED Dashboard)</h2>
+      <h2 className="mb-4 text-red-400">WIP - Mocked dashboard</h2>
 
       <div className="flex flex-col md:grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-2">
