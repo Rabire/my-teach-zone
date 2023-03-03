@@ -42,3 +42,6 @@ export type StudentBoard = {
   forms: StudentBoardForm[];
   students: (Student & { forms: Form })[];
 };
+
+export type DashboardFormation = Formation & { lessons: Lesson; forms: Form };
+export type Dashboard = DashboardFormation[];

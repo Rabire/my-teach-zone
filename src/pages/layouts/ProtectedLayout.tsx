@@ -23,6 +23,7 @@ const ProtectedLayout = () => {
 
       refreshFormationBoard();
       refreshStudentsBoard();
+      // getHome();
 
       if (data.error) {
         toast.error("Could not retreive your teacher");
