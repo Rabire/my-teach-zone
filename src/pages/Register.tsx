@@ -43,12 +43,12 @@ const Register = () => {
   const firstError = Object.values(errors)[0];
 
   return (
-    <main>
+    <main className="flex flex-col items-center">
       <h1 className="mt-32 text-center text-3xl">MY TEACH ZONE</h1>
       <h2 className="mb-16 text-center text-xl">Welcome !</h2>
 
       <form
-        className="bg-gray-600/50 rounded-lg p-8 flex flex-col max-w-md mx-auto"
+        className="bg-gray-600/50 rounded-lg p-8 flex flex-col max-w-md mx-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="relative mb-4">
