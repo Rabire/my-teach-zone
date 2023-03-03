@@ -8,7 +8,8 @@ type Props = { formation: DashboardFormation };
 const FormationCard = ({ formation }: Props) => {
   return (
     <Link
-      to={`/formation/${formation.id}`}
+      to="#"
+      // to={`/formation/${formation.id}`}
       className="bg-gray-700 rounded-md p-4"
     >
       <h3 className="text-xl">{formation.lessons.name}</h3>

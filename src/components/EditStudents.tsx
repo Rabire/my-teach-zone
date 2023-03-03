@@ -51,7 +51,7 @@ const EditStudents = () => {
         className="bg-violet-500 p-2 hover:bg-violet-600 rounded"
         type="submit"
       >
-        Create student
+        Edit students
       </button>
     </form>
   );

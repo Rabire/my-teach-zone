@@ -5,7 +5,11 @@ type Props = { student: Student };
 
 const StudentCard = ({ student }: Props) => {
   return (
-    <Link to={`/student/${student.id}`} className="bg-gray-700 rounded p-2">
+    <Link
+      to="#"
+      // to={`/student/${student.id}`}
+      className="bg-gray-700 rounded p-2"
+    >
       {student.name}
     </Link>
   );

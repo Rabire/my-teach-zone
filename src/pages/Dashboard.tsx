@@ -31,6 +31,8 @@ const MOCK_STUDENT: Student = {
   teacher_id: "22",
 };
 
+// FIXME: WIP #16
+
 const DashboardComponent = () => {
   const userTeacher = useStore(userTeacherStore);
 
@@ -38,9 +40,11 @@ const DashboardComponent = () => {
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
-      <h1 className="font-semibold text-4xl mb-4">
+      <h1 className="font-semibold text-4xl ">
         BONJOUR {userTeacher.teacher.name.toUpperCase()}
       </h1>
+
+      <h2 className="mb-4 text-red-400">(MOCKED Dashboard)</h2>
 
       <div className="grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-2">
