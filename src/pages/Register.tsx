@@ -52,7 +52,7 @@ const Register = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="relative mb-4">
-          <label className="text-sm opacity-50">Your name</label>
+          <label className="text-sm opacity-50">Votre nom</label>
           <input
             type="text"
             className="input"
@@ -69,24 +69,29 @@ const Register = () => {
         </div>
 
         <div className="relative mb-4">
-          <label className="text-sm opacity-50">Password</label>
+          <label className="text-sm opacity-50">Mot de passe</label>
           <input
             type="password"
             className="input"
             {...register("password", {
-              required: "Please enter a password",
-              minLength: { value: 6, message: "Minimum password length: 6" },
+              required: "Renseignez un mot de passe",
+              minLength: {
+                value: 6,
+                message: "Le mot de passe doit contenir au moins 6 characteres",
+              },
             })}
           />
         </div>
 
         <div className="relative mb-4">
-          <label className="text-sm opacity-50">Password confirmation</label>
+          <label className="text-sm opacity-50">
+            Confirmation mot de passe
+          </label>
           <input
             type="password"
             className="input"
             {...register("passwordConfirmation", {
-              required: "Please enter the password again",
+              required: "Reinseignez votre mot de passe a nouveau",
             })}
           />
         </div>
@@ -95,13 +100,13 @@ const Register = () => {
           type="submit"
           className="bg-violet-500 border-0 py-2 px-8  hover:bg-violet-600 rounded text-lg disabled:opacity-50"
         >
-          Register
+          S'incrire
         </button>
         <p className="text-center text-red-500 text-sm">
           {firstError?.message}
         </p>
         <Link to="/login" className="text-sm opacity-50 mt-2 text-center">
-          or login
+          ou se connecter
         </Link>
       </form>
     </main>

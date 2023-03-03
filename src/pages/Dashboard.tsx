@@ -39,21 +39,21 @@ const DashboardComponent = () => {
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
       <h1 className="font-semibold text-4xl mb-4">
-        HI {userTeacher.teacher.name.toUpperCase()}
+        BONJOUR {userTeacher.teacher.name.toUpperCase()}
       </h1>
 
       <div className="grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-2">
-          <h2 className="text-xl opacity-50">Current formations</h2>
+          <h2 className="text-xl opacity-50">Formations en cours</h2>
           <FormationCard formation={MOCK_FORMATION} />
 
-          <h2 className="text-xl opacity-50 mt-4">Incomming formations</h2>
+          <h2 className="text-xl opacity-50 mt-4">Formations a venir</h2>
           <FormationCard formation={MOCK_FORMATION} />
           <FormationCard formation={MOCK_FORMATION} />
         </div>
 
         <ul className="flex flex-col gap-2">
-          <h2 className="text-xl opacity-50">Recent students</h2>
+          <h2 className="text-xl opacity-50">Etudiants recents</h2>
 
           <StudentCard student={MOCK_STUDENT} />
           <StudentCard student={MOCK_STUDENT} />

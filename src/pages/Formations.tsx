@@ -8,16 +8,16 @@ const Formations = () => {
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
-      <h1 className="font-semibold text-4xl mb-4">MY LESSONS</h1>
+      <h1 className="font-semibold text-4xl mb-4">MES COURS</h1>
 
       <div className="grid grid-cols-2 w-full gap-4">
         <button
           onClick={() => setSideModal("write-lessons")}
           className="flex flex-col gap-2"
         >
-          <h2 className="text-xl opacity-50 text-start">Lessons</h2>
+          <h2 className="text-xl opacity-50 text-start">Mes lessons</h2>
           {lessons.length <= 0 && (
-            <p className="opacity-50 text-sm italic">No record...</p>
+            <p className="opacity-50 text-sm italic">Pas de lessons...</p>
           )}
           {lessons.map((lesson) => (
             <div
@@ -33,10 +33,10 @@ const Formations = () => {
           onClick={() => setSideModal("write-formation")}
           className="flex flex-col gap-2"
         >
-          <h2 className="text-xl opacity-50 text-start">Formations</h2>
+          <h2 className="text-xl opacity-50 text-start">Mes formations</h2>
 
           {formations.length <= 0 && (
-            <p className="opacity-50 text-sm italic">No record...</p>
+            <p className="opacity-50 text-sm italic">Pas de formations...</p>
           )}
           {formations.map((formation) => (
             <div

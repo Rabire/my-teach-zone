@@ -11,7 +11,7 @@ const Header = () => {
         <NavButton kind="/schools" />
       </nav>
       <Link to="/login" className="hover:bg-gray-800 p-2">
-        LOGOUT
+        Deconnexion
       </Link>
     </header>
   );

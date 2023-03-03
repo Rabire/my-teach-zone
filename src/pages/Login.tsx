@@ -43,17 +43,17 @@ const Login = () => {
           <input
             type="text"
             className="input"
-            {...register("email", { required: "Please enter an email" })}
+            {...register("email", { required: "Renseignez un email" })}
           />
         </div>
 
         <div className="relative mb-4">
-          <label className="text-sm opacity-50">Password</label>
+          <label className="text-sm opacity-50">Mot de passe</label>
           <input
             type="password"
             className="input"
             {...register("password", {
-              required: "Please enter a password",
+              required: "Renseignez un mot de passe",
             })}
           />
         </div>
@@ -63,13 +63,13 @@ const Login = () => {
           type="submit"
           className="bg-violet-500 border-0 py-2 px-8  hover:bg-violet-600 rounded text-lg disabled:opacity-50"
         >
-          Login
+          Se connecter
         </button>
         <p className="text-center text-red-500 text-sm">
           {firstError?.message}
         </p>
         <Link to="/register" className="text-sm opacity-50 mt-2 text-center">
-          or register
+          ou s'inscrire
         </Link>
       </form>
     </main>

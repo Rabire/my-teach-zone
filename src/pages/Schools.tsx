@@ -7,7 +7,7 @@ const Schools = () => {
 
   return (
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
-      <h1 className="font-semibold text-4xl mb-4">MY STUDENTS</h1>
+      <h1 className="font-semibold text-4xl mb-4">MES ELEVES</h1>
 
       <div className="grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-4">
@@ -15,9 +15,9 @@ const Schools = () => {
             onClick={() => setSideModal("write-forms")}
             className="flex flex-col gap-2"
           >
-            <h2 className="text-xl opacity-50 text-start">Froms</h2>
+            <h2 className="text-xl opacity-50 text-start">Mes promos</h2>
             {forms.length <= 0 && (
-              <p className="opacity-50 text-sm italic">No record...</p>
+              <p className="opacity-50 text-sm italic">Pas de promos...</p>
             )}
             {forms.map((from) => (
               <div
@@ -26,7 +26,7 @@ const Schools = () => {
               >
                 <p className="text-lg">{from.name}</p>
                 <p className="opacity-50">
-                  {from.schools.name} - {from.students[0].count} students
+                  {from.schools.name} - {from.students[0].count} etudiants
                 </p>
               </div>
             ))}
@@ -36,10 +36,10 @@ const Schools = () => {
             onClick={() => setSideModal("write-schools")}
             className="flex flex-col gap-2"
           >
-            <h2 className="text-xl opacity-50 text-start">Schools</h2>
+            <h2 className="text-xl opacity-50 text-start">Mes ecoles</h2>
 
             {schools.length <= 0 && (
-              <p className="opacity-50 text-sm italic">No record...</p>
+              <p className="opacity-50 text-sm italic">Pas d'ecoles</p>
             )}
             {schools.map((lesson) => (
               <div key={lesson.id} className="p-2 bg-gray-700 rounded text-lg">
@@ -53,10 +53,10 @@ const Schools = () => {
           onClick={() => setSideModal("write-students")}
           className="flex flex-col gap-2"
         >
-          <h2 className="text-xl opacity-50 text-start">Students</h2>
+          <h2 className="text-xl opacity-50 text-start">Mes etudiants</h2>
 
           {students.length <= 0 && (
-            <p className="opacity-50 text-sm italic">No record...</p>
+            <p className="opacity-50 text-sm italic">Pas d'etuduants</p>
           )}
           {students.map((student) => (
             <div
