@@ -6,13 +6,14 @@ export const signUp = async (inputs: RegisterInputs) => {
   const { data, error } = await supabase.auth.signUp({
     email: inputs.email,
     password: inputs.password,
+    options: {
+      emailRedirectTo: "https://my-teach-zone.vercel.app/",
+    },
   });
 
   const { error: createTeacherError } = await supabase
-    .from("teacher")
-    .insert({ name: inputs.name });
-
-  console.log({ error, createTeacherError });
+    .from("teachers")
+    .insert({ id: data?.user?.id || "", name: inputs.name });
 
   return { data, error: error || createTeacherError };
 };
@@ -37,7 +38,7 @@ export const getMe = async () => {
   const { data: teacher, error: teacherError } = await supabase
     .from("teachers")
     .select("*")
-    .eq("id", "e3c283d6-29d4-4ec1-b30e-547178da662a")
+    .eq("id", user.id)
     .single();
 
   if (!teacher) return { data: null, error: teacherError };
