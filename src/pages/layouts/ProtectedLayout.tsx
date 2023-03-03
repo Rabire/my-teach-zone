@@ -36,7 +36,7 @@ const ProtectedLayout = () => {
   if (!userTeacher) return <p>Loading ...</p>;
 
   return (
-    <div className="flex">
+    <div className="md:flex relative">
       <Header />
 
       <main className="p-10 w-full">

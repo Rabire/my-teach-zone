@@ -3,9 +3,9 @@ import NavButton from "./NavButton";
 
 const Header = () => {
   return (
-    <header className="h-screen p-6 align-middle shadow-lg flex flex-col items-center justify-between bg-gray-700">
+    <header className="md:h-screen p-6 align-middle shadow-lg flex md:flex-col items-center justify-between bg-gray-700">
       <div />
-      <nav className="flex flex-col gap-4 ">
+      <nav className="flex md:flex-col gap-4 ">
         <NavButton kind="/" />
         <NavButton kind="/formations" />
         <NavButton kind="/schools" />

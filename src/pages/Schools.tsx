@@ -9,7 +9,7 @@ const Schools = () => {
     <div className="flex justify-center items-start h-full flex-col max-w-3xl mx-auto">
       <h1 className="font-semibold text-4xl mb-4">MES ELEVES</h1>
 
-      <div className="grid grid-cols-2 w-full gap-4">
+      <div className="flex flex-col md:grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-4">
           <button
             onClick={() => setSideModal("write-forms")}

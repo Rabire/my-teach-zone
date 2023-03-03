@@ -46,12 +46,12 @@ const DashboardComponent = () => {
 
       <h2 className="mb-4 text-red-400">(MOCKED Dashboard)</h2>
 
-      <div className="grid grid-cols-2 w-full gap-4">
+      <div className="flex flex-col md:grid grid-cols-2 w-full gap-4">
         <div className="flex flex-col gap-2">
           <h2 className="text-xl opacity-50">Formations en cours</h2>
           <FormationCard formation={MOCK_FORMATION} />
 
-          <h2 className="text-xl opacity-50 mt-4">Formations a venir</h2>
+          <h2 className="text-xl opacity-50 md:mt-4">Formations a venir</h2>
           <FormationCard formation={MOCK_FORMATION} />
           <FormationCard formation={MOCK_FORMATION} />
         </div>

@@ -12,7 +12,7 @@ const SideModal = () => {
   if (sideModalContent === "none") return null;
 
   return (
-    <div className="absolute right-0 h-full flex w-full">
+    <div className="absolute right-0 top-0 h-screen flex w-full">
       <div
         className="bg-black h-full w-full opacity-80 px-16"
         onClick={() => setSideModal("none")}
